@@ -18,7 +18,7 @@ Any phone numbers can be used for both calls. Call status is tracked with hooks.
 
 1. Create a MySQL database and run `generate.sql` on it.
 1. Edit `hidden/config.json` and fill all the missing data.
-1. Place the `back` folder to a web server so that `public` directory is used as the doc root.
+1. Place the `back` folder to a web server so that `public` directory is used as the doc root, or rename `public` to anything you like.
 
 You may use `localhost` for almost all the testing, except that Twilio hooks require a public host name. 
 
