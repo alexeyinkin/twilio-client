@@ -6,6 +6,8 @@ This project was created as an assessment task for a job interview at a Californ
 1. When the button is clicked, the backend calls some administrator using Twilio API and speaks a message.
 1. From the same call the selected provider is called and connected to the administrator when the call is answered.
 
+![Screenshot](screen1.png)
+
 The frontend UI features include custom dropdown lists, table sorting, and an adaptive layout. It also queries the backend for call status and shows notifications.
 
 Any phone numbers can be used for both calls. Call status is tracked with hooks. A MySQL database is used to store the list of providers and call history.
@@ -37,4 +39,5 @@ This should open `https://localhost:3000` in your default browser. Navigate ther
 
 ## Credit
 
-A public domain logo placeholder was obtained at https://publicdomainvectors.org/en/free-clipart/Daisy-vector-border/1462.html
+- The layout was provided as a raster image by the company requesting the task be done. Frontend and the screenshot are a custom work of mine.
+- The public domain logo placeholder was obtained at https://publicdomainvectors.org/en/free-clipart/Daisy-vector-border/1462.html
