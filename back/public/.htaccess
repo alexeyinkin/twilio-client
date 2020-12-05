@@ -1,0 +1,28 @@
+RewriteEngine On
+
+# Force HTTPS.
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Rewrite an empty URI to index.html.
+RewriteCond %{REQUEST_URI} ^/$ [NC]
+RewriteRule .* index.html
+
+# Drop direct calls to PHP files.
+RewriteCond %{REQUEST_URI} !^/src/app\.php [NC]
+RewriteCond %{REQUEST_FILENAME} \.php$ [NC]
+RewriteRule .* - [F,L,NC]
+
+# Some servers create 'error_log' in document root. Deny that.
+RewriteRule ^error_log - [F,L]
+
+# Rewrite any non-existent file to app.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ src/app.php?path=$1&%{QUERY_STRING}
+
+php_flag magic_quotes_gpc   Off
+php_flag opcache.enable     Off
+php_flag display_errors     On
+
+php_value post_max_size         200M
+php_value upload_max_filesize   200M

@@ -1,0 +1,16 @@
+{
+    "databaseDriver": "mysql",
+    "databaseHost": "localhost",
+    "databasePort": 3306,
+    "databaseName": "database_name",
+    "databaseUser": "",
+    "databasePassword": "",
+    "appHost": "your-public-host.com",
+    "twilioWebhookKey": "QsuJu3KaJF6G5BzH8wrpa2GQ",
+    "accountSid": "",
+    "apiKeySid": "",
+    "apiKeyToken": "",
+    "twilioNumber": "+1... The phone number that Twilio issues to you.",
+    "adminNumber": "",
+    "providerNumber": ""
+}

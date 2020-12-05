@@ -1,0 +1,338 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+$defaultBorderRadius: .5em;
+$defaultShadow: 0 0 1.5em rgba(0, 0, 0, .2);
+$paleShadow: 0 0 1.5em rgba(0, 0, 0, .1);
+$breakpointMobile: 768px;
+$sidePanelWidth: 12em;
+$tableHorizontalPadding: 2em;
+$logoWidth: 8em;
+$logoRatio: 160 / 35;
+$mobilePadding: 1em;
+
+.IconAndText_dropdown {
+    padding: .3em 0;
+    cursor: pointer;
+}
+
+.IconAndTextDropdown_close {
+    display: none;
+}
+
+.IconAndTextDropdown_open {
+    position: absolute;
+    background-color: #fff;
+    border-radius: $defaultBorderRadius;
+    box-shadow: $defaultShadow;
+    padding: $defaultBorderRadius;
+    width: calc(100% - 1em);
+    z-index: 100;
+}
+
+.SortableTableHeaders {
+    display: none;
+}
+
+.SortableTableSelect {
+    padding: $mobilePadding $mobilePadding 0 $mobilePadding;
+}
+
+.SortableTableRows > div {
+    margin: $mobilePadding;
+    padding: .5em 1em;
+    box-shadow: $paleShadow;
+    border-radius: $defaultBorderRadius;
+}
+
+.SortableTableRows > div > div {
+    padding: .5em 0;
+}
+
+.ButtonTableCell > button {
+    width: 100%;
+}
+
+@media (min-width: $breakpointMobile) {
+    .SortableTableRows {
+        display: table;
+        width: 100%;
+    }
+
+    .SortableTableSelect {
+        display: none;
+    }
+
+    .SortableTableRows > div {
+        display: table-row;
+        margin: 0;
+        padding: 0;
+        box-shadow: unset;
+        border-radius: unset;
+    }
+
+    .SortableTableRows > div:nth-child(2n + 1) {
+        background-color: #f9f9fc;
+    }
+
+    .SortableTableHeaders {
+        display: table;
+        width: 100%;
+    }
+
+    .SortableTableHeaderRow {
+        display: table-row;
+    }
+
+    .SortableTableHeaderRow > div,
+    .SortableTableRows > div > div {
+        display: table-cell;
+        vertical-align: middle;
+        width: 20%;
+        height: 4em;
+        padding: 0 .5em;
+    }
+
+    .ButtonTableCell button {
+        width: unset;
+    }
+}
+
+.SortableTableHeaderCell {
+    text-align: left;
+    font-weight: normal;
+    font-size: .85em;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.SortableTableHeaderCell_ASC::after,
+.SortableTableHeaderCell_DESC::after {
+    position: absolute;
+    font-size: 1.5em;
+}
+
+.SortableTableHeaderCell_ASC::after {
+    content: '⌃';
+    top: 1.1em;
+}
+
+.SortableTableHeaderCell_DESC::after {
+    content: '⌄';
+    top: .35em;
+}
+
+.ButtonTableCell {
+    text-align: center;
+}
+
+.ButtonTableCell button {
+    border-radius: $defaultBorderRadius;
+    border: 0;
+    background-color: #00d67e;
+    color: #fff;
+    padding: .5em 0;
+    min-width: 5em;
+    font-weight: bold;
+}
+
+.StringTableCell_name {
+    font-weight: bold;
+}
+
+.Select {
+    position: relative;
+}
+
+.SelectDropdownToggle {
+    position: absolute;
+    font-size: 1.5em;
+    top: -.25em;
+    right: .4em;
+}
+
+.SelectValue {
+    border-radius: $defaultBorderRadius;
+    padding: $defaultBorderRadius;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.SelectValue_open {
+    border: 1px solid #6ecafe;
+}
+
+.SelectValue_close {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.Icon {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    background-size: cover;
+    position: relative;
+    top: .1em;
+    margin-right: .5em;
+}
+
+// TODO: SVG.
+.Icon_NOT_COMPLETE {
+    background-image: url('../i/NOT_COMPLETE.png');
+}
+
+.Icon_DID_NOT_PASS {
+    background-image: url('../i/DID_NOT_PASS.png');
+}
+
+.Icon_PASSED {
+    background-image: url('../i/PASSED.png');
+}
+
+body {
+    font-family: Lato;
+    color: #333;
+}
+
+
+$maxNotifications: 5;
+$notificationHeight: 2em;
+$notificationMargin: .3em;
+$notificationPadding: .5em;
+
+.Notification {
+    position: fixed;
+    text-align: center;
+    z-index: 1000;
+    width: 80%;
+    left: 10%;
+    padding: $notificationPadding;
+    margin: $notificationMargin 0;
+    border: 1px solid #888;
+    background-color: #ddd;
+    border-radius: $defaultBorderRadius;
+    box-shadow: $defaultShadow;
+}
+
+.Notification_error {
+    background-color: #f88;
+    border: 1px solid #a44;
+}
+
+.SidePanel {
+    display: none;
+}
+
+.SidePanelItems > div {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    border-radius: $defaultBorderRadius;
+    background-color: rgba(128, 128, 255, .3);
+    margin: .5em;
+    padding: .5em 0;
+};
+
+.PoweredBy {
+    position: fixed;
+    width: $sidePanelWidth;
+    bottom: 2em;
+}
+
+.PoweredByText {
+    text-align: center;
+    font-size: .7em;
+    color: rgba(255, 255, 255, .5);
+}
+
+.PoweredByLogo {
+    background-image: url('../i/logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: $logoWidth;
+    height: $logoWidth / $logoRatio;
+    margin: 0 auto;
+    opacity: .5;
+}
+
+@media (min-width: $breakpointMobile) {
+    .SidePanel {
+        display: block;
+        float: left;
+        width: $sidePanelWidth;
+    }
+
+    .CenterPanel {
+        float: right;
+        width: calc(100% - #{$sidePanelWidth + 2 * $tableHorizontalPadding});
+        padding: 0 $tableHorizontalPadding;
+    }
+
+    body {
+        background: linear-gradient(#7c00e8, #9e00f5);
+        background-size: 12em 100%;
+        background-repeat: no-repeat;
+    }
+}
+
+.SettingsPanel_close {
+    display: none;
+}
+
+.SettingsPanelToggle {
+    width: calc(100% - #{2 * $mobilePadding});
+    margin: $mobilePadding;
+}
+
+@media (min-width: $breakpointMobile) {
+    .SettingsPanelToggle {
+        position: absolute;
+        top: .5em;
+        right: .5em;
+        z-index: 50;
+        width: unset;
+        margin: unset;
+    }
+}
+
+.SettingRow {
+    padding: .5em $mobilePadding;
+    margin: 0 auto;
+}
+
+.SettingName {
+    text-align: left;
+}
+
+.SettingInputDiv > input {
+    width: calc(100% - #{2 * $mobilePadding});
+}
+
+@media (min-width: $breakpointMobile) {
+    .SettingRow {
+        text-align: center;
+    }
+
+    .SettingName {
+        padding-top: .4em;
+        width: 10em;
+        display: inline-block;
+    }
+
+    .SettingInputDiv {
+        width: 10em;
+        display: inline-block;
+    }
+
+}
+
+@for $i from 1 to $maxNotifications + 1 {
+    .Notification:nth-child(#{$i}) {
+        top: ($i - 1) * ($notificationHeight + 2 * ($notificationMargin)) + $notificationMargin;
+    }
+}
+
+html, body {
+    margin: 0;
+    min-height: 100%;
+}
